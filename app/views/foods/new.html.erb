@@ -4,15 +4,36 @@
       <%= form_with(model:[@food], local: true) do |f| %>
         <h4>料理名</h4>
         <div class = "form-group space" >
-          <%= f.text_field :comment, class: 'form-control', rows:'5'%>
+          <%= f.text_field :name, class: 'form-control', rows:'5'%>
         </div>
-        <h4>工程</h4>       
+        
+        <h4>レシピ(リンク)</h4>
         <div class = "form-group space" >
-         <p>切る　<%= f.radio_button(:cut, true) %>　</p>
+          <%= f.text_area :link, class: 'form-control' %>
         </div>
-        <div class = "form-group" >
-         <p>焼く　<%= f.radio_button(:grill, true) %>　</p>
+        
+        <h4>写真</h4>
+        <div class = "form-group space" >
+          <%= f.attachment_field :image %>
         </div>
+        
+        
+        
+        <h4 class = "space">工程</h4>       
+        <div class = "form-group " >
+         <p>切る<%= f.radio_button(:cut, true) %>　 焼く<%= f.radio_button(:grill, true) %>　茹でる<%= f.radio_button(:boil, true)%>　揚げる<%= f.radio_button(:fry, true)%>　蒸す<%= f.radio_button(:steam, true)%></p>
+        </div>
+        
+        <h4 class = "space">調味料</h4>       
+        <div class = "form-group " >
+         <p>醤油<%= f.radio_button(:soisource, true) %>　 塩<%= f.radio_button(:salt, true) %>　胡椒<%= f.radio_button(:papper, true)%>　砂糖<%= f.radio_button(:sugar, true)%>　酢<%= f.radio_button(:vinegar, true)%>　みりん<%= f.radio_button(:mirin, true)%>　酒<%= f.radio_button(:sake, true)%></p>
+        </div>
+        
+        <h4 class = "space">食材</h4>       
+        <div class = "form-group " >
+         <p>牛肉<%= f.radio_button(:beef, true) %>　 豚肉<%= f.radio_button(:pork, true) %>　鶏肉<%= f.radio_button(:chicken, true)%>　じゃがいも<%= f.radio_button(:potato, true)%>　玉ねぎ<%= f.radio_button(:onion, true)%>　にんじん<%= f.radio_button(:carrot, true)%>　魚<%= f.radio_button(:fish, true)%></p>
+        </div>
+
         
           <%= f.submit '送信', class: 'btn btn-success'%>
       <% end %>

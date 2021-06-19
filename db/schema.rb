@@ -10,31 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_002807) do
+ActiveRecord::Schema.define(version: 2021_06_19_151559) do
 
   create_table "foods", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.boolean "cut　", default: false
-    t.boolean "grill　", default: false
-    t.boolean "boil　", default: false
-    t.boolean "fry　", default: false
-    t.boolean "steam　", default: false
-    t.boolean "soisource　", default: false
-    t.boolean "salt　", default: false
-    t.boolean "papper　", default: false
-    t.boolean "sugar　", default: false
-    t.boolean "vinegar　", default: false
-    t.boolean "mirin　", default: false
-    t.boolean "sake　", default: false
-    t.boolean "beef　", default: false
-    t.boolean "pork　", default: false
-    t.boolean "chicken　", default: false
-    t.boolean "potato　", default: false
-    t.boolean "onion　", default: false
-    t.boolean "carrot　", default: false
-    t.boolean "fish　", default: false
+    t.boolean "cut", default: false
+    t.boolean "grill", default: false
+    t.boolean "boil", default: false
+    t.boolean "fry", default: false
+    t.boolean "steam", default: false
+    t.boolean "soisource", default: false
+    t.boolean "salt", default: false
+    t.boolean "papper", default: false
+    t.boolean "sugar", default: false
+    t.boolean "vinegar", default: false
+    t.boolean "mirin", default: false
+    t.boolean "sake", default: false
+    t.boolean "beef", default: false
+    t.boolean "pork", default: false
+    t.boolean "chicken", default: false
+    t.boolean "potato", default: false
+    t.boolean "onion", default: false
+    t.boolean "carrot", default: false
+    t.boolean "fish", default: false
+    t.string "image_id"
+    t.text "genre"
+    t.text "link"
   end
 
 end

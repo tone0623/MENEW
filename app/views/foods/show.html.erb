@@ -1,0 +1,127 @@
+ <div class = "container">
+      <div class = "row space">
+          <div class = "col-md-4 offset-1" >
+              <%= attachment_image_tag @food, :image, size: "300x300", format: 'jpeg', fallback: "no_image.jpg" %>
+          </div>
+           <div class = "col-md-4" >
+              <h2><%= @food.name %></h2>
+              <p><%= link_to 'レシピはこちら', @food.link %></p>
+              <p>
+               <%= link_to "削除", food_path(@food.id), method: :delete, data: { confirm: 'レシピを消しますか？' }, class: "btn btn-sm btn-danger" %>
+              </p>
+           </div>
+      </div>
+      <div class = "raw space">
+         <div class = "col-8 ml-auto">
+          <h4>オススメ料理</h4>
+          <p><%= @food.genre %></p>
+           <%= form_with model: @food do |f| %>
+             <%= f.select :genre, [["食材", "食材"], ["調味料", "調味料"], ["工程", "工程"]], include_blank: "検索ジャンル" %>
+             <%= f.submit '送信'%>
+           <% end %>
+           <h4><%= @food.genre %></h4>
+           <% if @food.genre == "工程"%>
+             <% @foods.each do |food| %>
+                <% count = 0 %>
+                <% if @food.cut == food.cut %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.grill == food.grill %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.boil == food.boil %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.fry == food.fry %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.steam == food.steam %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if count >= 1 %>
+                  <%= attachment_image_tag food, :image, size: "200x200", format: 'jpeg', fallback: "no_image.jpg" %>
+                <% end %>
+              <% end %>
+            <% end %>
+           
+            <% if @food.genre == "食材"%>
+             <% @foods.each do |food| %>
+                <% count = 0 %>
+                <% if @food.beef == food.beef %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.pork == food.pork %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.chicken == food.chicken %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.potato == food.potato %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.onion == food.onion %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.carrot == food.carrot %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.fish == food.fish %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if count >= 1 %>
+                  <%= attachment_image_tag food, :image, size: "200x200", format: 'jpeg', fallback: "no_image.jpg" %>
+                <% end %>
+             <% end %>
+           <% end %>
+           
+           <% else %>
+             <% @foods.each do |food| %>
+                <% count = 0 %>
+                <% if @food.soisource == food.soisource %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.salt == food.salt %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.papper == food.papper %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.sugar == food.sugar %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.vinegar == food.vinegar%>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.mirin == food.mirin %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if @food.sake == food.sake %>
+                  <% count += 1 %>
+                <% end %>
+                
+                <% if count >= 1 %>
+                  <%= attachment_image_tag food, :image, size: "200x200", format: 'jpeg', fallback: "no_image.jpg" %>
+                <% end %>
+             <% end %>
+           <% end %>
+         </div>
+     </div>
+ </div>
