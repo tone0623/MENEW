@@ -2,9 +2,9 @@
     <div class = "row space"> 
        <h2>All Recipe</h2>
     </div>
-    <div class = "row space"> 
+    <div class = "row "> 
         <% @foods.each do |food| %>
-        <div class = "col-3">
+        <div class = "col-3 space-col">
           <%= link_to food_path(food.id) do %>
             <%= attachment_image_tag food, :image, size: "250x250", format: 'jpeg', fallback: "no_image.jpg" %> 
           <% end %>
